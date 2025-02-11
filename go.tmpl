@@ -1,0 +1,12 @@
+resource "cloudflare_dns_record" "{{ .TerraformResourceName }}" {
+  zone_id = "{{ .ZoneID }}"
+  comment = {{ .Comment }}
+  content = "{{ .Content }}"
+  name = "{{ .Name }}"
+  proxied = {{ .Proxied }}
+  type = "{{ .DNSType }}"
+  ttl = {{ .TTL }}
+  {{- if eq .DNSType "MX" }}
+  priority = {{ .Priority }}
+  {{- end }}
+}
