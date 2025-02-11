@@ -38,7 +38,7 @@ func main() {
 		panic(err)
 	}
 	defer f.Close()
-	f2, err := os.Create("terraform/mport.tf")
+	f2, err := os.Create("terraform/import.tf")
 	if err != nil {
 		panic(err)
 	}
@@ -68,7 +68,7 @@ func main() {
 			TerraformResourceName: terraformResourceName,
 			Priority:              priority,
 		}
-		t, err := template.New("go.tmpl").ParseFiles("go.tmpl")
+		t, err := template.New("records.tmpl").ParseFiles("records.tmpl")
 		if err != nil {
 			panic(err)
 		}
